@@ -660,8 +660,8 @@ contract StakingRewards is RewardsDistributionRecipient, ReentrancyGuard {
         // Reward + leftover must be less than 2^256 / 10^18 to avoid overflow.
         // uint balance = rewardsToken.balanceOf(address(this));
         if(getChainId() == 56 ){
-            uint balance = rewardsToken2.balanceOf(address(this));
-            require(rewardRate2 <= balance.div(rewardsDuration2), "Provided reward too high");            
+            uint balance = rewardsToken.balanceOf(address(this));
+            require(rewardRate2 <= balance.div(rewardsDuration), "Provided reward too high");            
         }
 
         lastUpdateTime = block.timestamp;
